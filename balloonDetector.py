@@ -14,9 +14,9 @@ from utils import list_paths
 from PIL import Image
 import imp
 
-utils_ops = imp.load_source('ops', '/home/walter/Documents/models/research/object_detection/utils/ops.py')
-label_map_util = imp.load_source('label_map_util', '/home/walter/Documents/models/research/object_detection/utils/label_map_util.py')
-vis_util = imp.load_source('visualization_utils', '/home/walter/Documents/models/research/object_detection/utils/visualization_utils.py')
+utils_ops = imp.load_source('ops', 'tensorflow/object_detection/utils/ops.py')
+label_map_util = imp.load_source('label_map_util', 'tensorflow/object_detection/utils/label_map_util.py')
+vis_util = imp.load_source('visualization_utils', 'tensorflow/object_detection/utils/visualization_utils.py')
 
 
 def load_image_into_numpy_array(image):
@@ -25,13 +25,13 @@ def load_image_into_numpy_array(image):
   
 def prepare():
 	# What model to take.
-	MODEL_NAME = '/home/walter/Documents/python/manda_translator/detector'
+	MODEL_NAME = 'detector'
 	
 	# Path to frozen detection graph. This is the actual model that is used for the object detection.
 	PATH_TO_FROZEN_GRAPH = MODEL_NAME + '/frozen_inference_graph.pb'
 	
 	# List of the strings that is used to add correct label for each box.
-	PATH_TO_LABELS = os.path.join('/home/walter/Documents/models/research/object_detection/', 'balao.pbtxt')
+	PATH_TO_LABELS = os.path.join(MODEL_NAME, 'balao.pbtxt')
 	
 	detection_graph = tf.Graph()
 	with detection_graph.as_default():

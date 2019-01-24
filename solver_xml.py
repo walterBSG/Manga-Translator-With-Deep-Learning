@@ -9,6 +9,8 @@ import re
 import os
 from fnmatch import fnmatch
 
+# If you have problems with xml's path, use this file
+
 def takeFilesByExtension(folder, pattern):
 	paths = []
 	for path, subdirs, files in os.walk(folder):
@@ -29,8 +31,9 @@ def fileSolver(file):
 		text = re.sub('<path>.*?</path>',('<path>'+path+'</path>'),text, flags=re.DOTALL)
 	with open(file, 'w+') as f:
 		f.write(text)
-		
-paths = takeFilesByExtension('/home/walter/Documents/models/research/object_detection/data/images','*.xml')
+
+# Change the xml's path to their current folder 		
+paths = takeFilesByExtension('.............../images','*.xml')
 print(paths)
 for path in paths:
 	fileSolver(path)

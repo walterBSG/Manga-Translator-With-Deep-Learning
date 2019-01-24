@@ -1,0 +1,8 @@
+item{
+	id: 1
+	name: 'balao'
+}
+item{
+	id: 2
+	name: 'texto'
+}

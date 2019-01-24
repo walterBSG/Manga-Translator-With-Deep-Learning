@@ -2,7 +2,7 @@ import utils
 import pytesseract
 import balloonDetector as detector
 
-folder = '/home/walter/Documents/naruto/Naruto Chapter 0'
+folder = 'test_manga/Naruto Chapter 0'
 
 paths = utils.takeFilesByExtension(folder, '*.jpg')
 
