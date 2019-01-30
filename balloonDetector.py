@@ -13,9 +13,9 @@ import cv2
 from utils import list_paths
 import imp
 
-utils_ops = imp.load_source('ops', 'tensorflow/object_detection/utils/ops.py')
-label_map_util = imp.load_source('label_map_util', 'tensorflow/object_detection/utils/label_map_util.py')
-vis_util = imp.load_source('visualization_utils', 'tensorflow/object_detection/utils/visualization_utils.py')
+utils_ops = imp.load_source('ops', 'object_detection/utils/ops.py')
+label_map_util = imp.load_source('label_map_util', 'object_detection/utils/label_map_util.py')
+vis_util = imp.load_source('visualization_utils', 'object_detection/utils/visualization_utils.py')
 
 def prepare():
 	# What model to take.

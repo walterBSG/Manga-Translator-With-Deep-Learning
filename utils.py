@@ -13,9 +13,9 @@ from fnmatch import fnmatch
 def takeFilesByExtension(folder, pattern):
 	paths = []
 	for path, subdirs, files in os.walk(folder):
-	    for name in files:
-	        if fnmatch(name, pattern):
-	            paths.append(os.path.join(path, name))
+		for name in files:
+			if fnmatch(name, pattern):
+				paths.append(os.path.join(path, name))
 
 	return paths
 
@@ -63,7 +63,7 @@ def move_percentage(folder,dest, percentage):
 def remove(original, target):
 	files = os.listdir(original)
 	for file in files:
-		   os.remove(os.path.join(target,file))
+		os.remove(os.path.join(target,file))
    
 def clean(folder):
 	files = os.listdir(folder)

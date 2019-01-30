@@ -6,6 +6,7 @@ import balloonDetector as detector
 import fit_text
 import translator_module as tr
 
+
 print('ok')
 
 def translate(folder = 'test'):
