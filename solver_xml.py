@@ -33,7 +33,7 @@ def fileSolver(file):
 		f.write(text)
 
 # Change the xml's path to their current folder 		
-paths = takeFilesByExtension('.............../images','*.xml')
+paths = takeFilesByExtension('../images','*.xml')
 print(paths)
 for path in paths:
 	fileSolver(path)

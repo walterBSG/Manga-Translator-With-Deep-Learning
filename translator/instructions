@@ -1,0 +1,3 @@
+To get the translator 
+
+cat strana* > translator.h5

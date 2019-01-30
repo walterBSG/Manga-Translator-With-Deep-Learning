@@ -11,18 +11,12 @@ import os
 import tensorflow as tf
 import cv2
 from utils import list_paths
-from PIL import Image
 import imp
 
 utils_ops = imp.load_source('ops', 'tensorflow/object_detection/utils/ops.py')
 label_map_util = imp.load_source('label_map_util', 'tensorflow/object_detection/utils/label_map_util.py')
 vis_util = imp.load_source('visualization_utils', 'tensorflow/object_detection/utils/visualization_utils.py')
 
-
-def load_image_into_numpy_array(image):
-	(im_width, im_height) = image.size
-	return np.array(image.getdata()).reshape((im_height, im_width, 3)).astype(np.uint8)
-  
 def prepare():
 	# What model to take.
 	MODEL_NAME = 'detector'
@@ -79,13 +73,15 @@ def detectFromFolder(folder):
 
 	paths = list_paths(folder)
 	
-	images = detectFromPaths(paths)
+	images, locations, new_paths = detectFromPaths(paths)
 
-	return images
+	return images, locations, new_paths
 
 def detectFromPaths(paths):
 
 	images = []
+	locations = []
+	new_paths = []
 	detection_graph, category_index = prepare()
 	
 	with detection_graph.as_default():
@@ -120,6 +116,8 @@ def detectFromPaths(paths):
 								
 								new_img = img[int(By):int(Uy),int(Bx):int(Ux)]
 								images.append(new_img)
+								locations.append([int(By),int(Uy),int(Bx),int(Ux)])
+								new_paths.append(path)
 								break
 						
-	return images
+	return images, locations, new_paths
