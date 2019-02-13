@@ -34,7 +34,7 @@ def tokenize(x):
     x_tk.fit_on_texts(x)
     return x_tk.texts_to_sequences(x), x_tk
 
-def pad(x, length=None):
+def pad(x, length=36):
     if length is None:
         length = len(max(x, key=len))
 
@@ -61,17 +61,7 @@ def load_sentences(path = 'translator'):
 	    row = d.split('\t')
 	    en_sentences.append(row[0])
 	    pt_sentences.append(row[1])
-	    
-	dataset = load_data(os.path.join(path,'europarl-v7.pt-en.en'))
-	
-	for d in dataset:
-	    en_sentences.append(d)
-	    
-	dataset = load_data(os.path.join(path,'europarl-v7.pt-en.pt'))
-	
-	for d in dataset:
-	    pt_sentences.append(d)
-	
+    
 	pt_sentences, en_sentences = threshold(pt_sentences,en_sentences)
 	
 	return en_sentences, pt_sentences
@@ -112,3 +102,8 @@ def translate(model, sentence, en_tokenizer, x, y_id_to_word):
 		return str(answer)
 	except:
 		return s
+
+def test(sentense):
+	model, tokenizer, x, y = load_all()
+	sentense = prepare(sentense)
+	translate(model, sentense, tokenizer, x, y)
