@@ -18,7 +18,7 @@ Follow the link of the codes used:
 - [X] Implement tesseract OCR in code
 - [X] base translator
 - [ ] handle names better
-- [ ] Implementation in the code of a translator based on [attention] (https://colab.research.google.com/github/tensorflow/tensorflow/blob/master/tensorflow/contrib/eager/python/examples/nmt_with_attention/nmt_with_attention.ipynb)
+- [ ] Implementation in the code of a translator based on attention (https://colab.research.google.com/github/tensorflow/tensorflow/blob/master/tensorflow/contrib/eager/python/examples/nmt_with_attention/nmt_with_attention.ipynb)
 - [ ] translate from japanese to English and other languages
 
 ## Requirements
